@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Иван Петров",
+      "email": "ivan@company.com",
+      "group": "management",
+      "phone": "+7 (999) 123-45-67"
+    }
+  ]
+}
