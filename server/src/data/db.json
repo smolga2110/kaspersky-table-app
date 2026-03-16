@@ -1,11 +1,28 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Иван Петров",
-      "email": "ivan@company.com",
-      "group": "management",
-      "phone": "+7 (999) 123-45-67"
+      "id": 1,
+      "name": "Alex John",
+      "login": "AlexJohn",
+      "email": "yandex@yandex.ru",
+      "group": "Unmanaged",
+      "number": "+7-999-999-99-99"
+    },
+    {
+      "id": 2,
+      "name": "James Bond",
+      "login": "JamesBond",
+      "email": "yandex@yandex.ru",
+      "group": "managment",
+      "phone": "+7-999-999-99-99"
+    },
+    {
+      "id": "2fdd289f-e184-4a94-844b-4b8e0b9cd9ca",
+      "name": "Fames Bond",
+      "login": "FamesBond",
+      "email": "yandex@yandex.ru",
+      "group": "managment",
+      "phone": "+7-999-999-99-99"
     }
   ]
 }
