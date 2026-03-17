@@ -7,6 +7,8 @@ function UserTable(){
     const [users, setUsers] = useState<User[]>([])
     const [userIDs, setUserIDs] = useState<string[]>([])
 
+    const allSelected = userIDs.length > 0 && userIDs.length === users.length
+
     useEffect(() => {
         async function fetchUsers(){
             try {
@@ -27,7 +29,14 @@ function UserTable(){
                 <thead>
                     <tr>
                         <th scope="col">
-                            <input type="checkbox" />
+                            <input type="checkbox" checked={allSelected} onChange={(e) => {
+                                if (e.target.checked) {
+                                    setUserIDs(users.map((user) => user.id))
+                                }
+                                else{
+                                    setUserIDs([])
+                                }
+                            }}/>
                         </th>
                         <th scope="col">Имя</th>
                         <th scope="col">Учетная запись</th>
@@ -41,14 +50,18 @@ function UserTable(){
                         users.map((user: User) => {
                             return(
                                 <tr>
-                                    <input type="checkbox" value={user.id} onChange={(e) => {
-                                        if (e.target.checked){
-                                            setUserIDs([...userIDs, e.target.value])
-                                        }
-                                        else{
-                                            setUserIDs(userIDs.filter((id) => id !== e.target.value))
-                                        }
-                                    }}/>
+                                    <td>
+                                        <input type="checkbox" value={user.id} onChange={(e) => {
+                                                if (e.target.checked){
+                                                    setUserIDs([...userIDs, e.target.value])
+                                                }
+                                                else{
+                                                    setUserIDs(userIDs.filter((id) => id !== e.target.value))
+                                                }
+                                            }}
+                                            checked={userIDs.includes(user.id)}
+                                        />
+                                    </td>
                                     <th scope="row">{user.name}</th>
                                     <td>{user.login}</td>
                                     <td>{user.email}</td>

@@ -1,4 +1,4 @@
-import UserTable from "../components/users/UsersTable "
+import UserTable from "../components/users/UsersTable"
 
 function Users(){
     return(
