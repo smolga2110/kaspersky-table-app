@@ -1,28 +1,84 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Alex John",
-      "login": "AlexJohn",
-      "email": "yandex@yandex.ru",
-      "group": "Unmanaged",
-      "number": "+7-999-999-99-99"
-    },
-    {
-      "id": "2",
+      "id": "2fdd289f-e184-4a94-844b-4b8e0b9cd9ca",
       "name": "James Bond",
       "login": "JamesBond",
-      "email": "yandex@yandex.ru",
-      "group": "managment",
+      "email": "bond@mi6.uk",
+      "group": "management",
       "phone": "+7-999-999-99-99"
     },
     {
-      "id": "2fdd289f-e184-4a94-844b-4b8e0b9cd9ca",
-      "name": "Fames Bond",
-      "login": "FamesBond",
-      "email": "yandex@yandex.ru",
-      "group": "managment",
-      "phone": "+7-999-999-99-99"
+      "id": "3a45b678-c123-4d5e-8f90-123456789abc",
+      "name": "John Wick",
+      "login": "JohnWick",
+      "email": "wick@continental.com",
+      "group": "security",
+      "phone": "+7-888-888-88-88"
+    },
+    {
+      "id": "4b56c789-d234-4e5f-9a01-234567890bcd",
+      "name": "Ethan Hunt",
+      "login": "EthanHunt",
+      "email": "hunt@imf.gov",
+      "group": "field_agents",
+      "phone": "+7-777-777-77-77"
+    },
+    {
+      "id": "5c67d890-e345-4f6a-ab12-345678901cde",
+      "name": "Jason Bourne",
+      "login": "JasonBourne",
+      "email": "bourne@cia.gov",
+      "group": "black_ops",
+      "phone": "+7-666-666-66-66"
+    },
+    {
+      "id": "6d78e901-f456-4a7b-bc23-456789012def",
+      "name": "Sarah Connor",
+      "login": "SarahConnor",
+      "email": "connor@resistance.net",
+      "group": "leadership",
+      "phone": "+7-555-555-55-55"
+    },
+    {
+      "id": "7e89f012-a567-4b8c-cd34-567890123efg",
+      "name": "Ellen Ripley",
+      "login": "EllenRipley",
+      "email": "ripley@weyland.com",
+      "group": "space_operations",
+      "phone": "+7-444-444-44-44"
+    },
+    {
+      "id": "8f90a123-b678-4c9d-de45-678901234fgh",
+      "name": "Tony Stark",
+      "login": "TonyStark",
+      "email": "tony@starkindustries.com",
+      "group": "rnd",
+      "phone": "+7-333-333-33-33"
+    },
+    {
+      "id": "9a01b234-c789-4d0e-ef56-789012345ghi",
+      "name": "Natasha Romanoff",
+      "login": "NatashaRomanoff",
+      "email": "romanoff@avengers.org",
+      "group": "intelligence",
+      "phone": "+7-222-222-22-22"
+    },
+    {
+      "id": "0b12c345-d890-4e1f-fg67-890123456hij",
+      "name": "Bruce Wayne",
+      "login": "BruceWayne",
+      "email": "bruce@wayneenterprises.com",
+      "group": "executive",
+      "phone": "+7-111-111-11-11"
+    },
+    {
+      "id": "1c23d456-e901-4f2a-gh78-901234567ikl",
+      "name": "Diana Prince",
+      "login": "DianaPrince",
+      "email": "diana@themyscira.gov",
+      "group": "diplomatic",
+      "phone": "+7-000-000-00-00"
     }
   ]
 }

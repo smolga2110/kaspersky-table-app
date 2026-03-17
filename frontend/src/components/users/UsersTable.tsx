@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { ApiResponse, User } from "../../types"
+import { FaArrowUpZA, FaArrowDownAZ  } from "react-icons/fa6";
+import AddUserForm from "./AddUserForm";
+
 
 function UserTable(){
 
     const [users, setUsers] = useState<User[]>([])
+    const [searchUsers, setSearchUsers] = useState<User[]>([])
     const [userIDs, setUserIDs] = useState<string[]>([])
+    const [direction, setDirection] = useState<"up" | "down">("up")
+    const [showAddForm, setShowAddForm] = useState(false)
 
     const allSelected = userIDs.length > 0 && userIDs.length === users.length
 
@@ -15,16 +21,78 @@ function UserTable(){
                 const response = await axios.get<ApiResponse>("http://localhost:3000/api/users")
 
                 setUsers(response.data.data.users)
+
             } catch (error) {
                 console.error(error)
             }
         }
 
         fetchUsers()
+
     }, [])
+
+    const handleDeleteUsers = async ( ids: string[]) => {
+        try {
+
+            const response = await axios.post<ApiResponse>("http://localhost:3000/api/users/delete", { ids: userIDs})
+
+            setUsers(response.data.data.users)
+            setUserIDs([])
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handleSort = (field: keyof User) => {
+        direction === "up" ? setDirection("down") : setDirection("up")
+
+        setUsers([...users].sort((a, b) => {
+            if (a[field] < b[field]) return direction === "down" ? 1 : -1
+            if (a[field] > b[field]) return direction === "down" ? -1 : 1
+            return 0
+        }))
+    }
+
+    const handleUserAdded = (newUser: User) => {
+        setUsers(prev => [...prev, newUser])
+    }
 
     return(
         <>
+            <input type="text" onChange={(e) => {
+                if (e.target.value){
+                    setSearchUsers(users.filter(user => 
+                        user.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                        user.email.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                        user.phone.toLowerCase().includes(e.target.value.toLowerCase())
+                    ))
+                }
+                else{
+                    setSearchUsers([])
+                }
+            }}/>
+            <button onClick={() => setShowAddForm(true)} className="flex">
+                    Добавить пользователя
+            </button>
+            {userIDs.length > 0 ? (
+                <button onClick={() => handleDeleteUsers(userIDs)}>
+                    Удалить
+                </button>) 
+                : 
+                <button disabled>
+                    Выберите пользователей
+                </button>
+            }
+
+            {showAddForm && (
+                <AddUserForm 
+                    onUserAdded={handleUserAdded}
+                    onClose={() => setShowAddForm(false)}
+                />
+            )}
+
+
             <table>
                 <thead>
                     <tr>
@@ -38,16 +106,16 @@ function UserTable(){
                                 }
                             }}/>
                         </th>
-                        <th scope="col">Имя</th>
-                        <th scope="col">Учетная запись</th>
-                        <th scope="col">Почта</th>
-                        <th scope="col">Группа</th>
-                        <th scope="col">Телефон</th>
+                        <th scope="col" id="name" onClick={() => handleSort('name')}>Имя{direction === "down" ? <FaArrowDownAZ/> : <FaArrowUpZA/>}</th>
+                        <th scope="col" id="login">Учетная запись</th>
+                        <th scope="col" id="email">Почта</th>
+                        <th scope="col" id="group" onClick={() => handleSort('group')}>Группа</th>
+                        <th scope="col" id="number">Телефон</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        users.map((user: User) => {
+                        (searchUsers.length > 0 ? searchUsers : users).map((user: User) => {
                             return(
                                 <tr>
                                     <td>

@@ -59,29 +59,46 @@ export const addUser = async (req: Request, res: Response, next: NextFunction) =
 
 export const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const data = await fs.readFile("./src/data/db.json", "utf-8")
-        let result = JSON.parse(data)
-        const id = req.params.id
-        const userExists = result.users.find((user: User) => user.id === id)
-
-        if (!userExists){
-            res.status(404).json({
+        const { ids } = req.body
+        if (!ids || !Array.isArray(ids) || ids.length === 0) {
+            return res.status(400).json({
                 success: false,
-                error: "User not found"
+                error: "ids must be a non-empty array"
             })
         }
 
-        result.users = result.users.filter((user: User) => user.id !== id)
+        const data = await fs.readFile("./src/data/db.json", "utf-8")
+        let result = JSON.parse(data)
+
+        const notFoundIds: string[] = []
+        ids.forEach(id => {
+            const userExists = result.users.some((user: User) => user.id === id)
+            if (!userExists) {
+                notFoundIds.push(id)
+            }
+        })
+        
+        if (notFoundIds.length > 0) {
+            return res.status(404).json({
+                success: false,
+                error: "Users not found",
+                notFoundIds
+            })
+        }
+
+        result.users = result.users.filter(
+            (user: User) => !ids.includes(user.id)
+        )
 
         const response: ApiResponse<User[]> = {
             success: true,
             data: result,
-            message: "User deleted succesfully"
+            message: `${ids.length} users deleted successfully`
         }
 
         await fs.writeFile("./src/data/db.json", JSON.stringify(result, null, 2))
         
-        return res.status(204).json(response)
+        return res.status(200).json(response)
     } 
     catch(err){
         next(err)

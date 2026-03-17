@@ -13,3 +13,8 @@ export interface ApiResponse{
         users: User[]
     }
 }
+
+export interface AddUserFormProps {
+    onUserAdded: (newUser: User) => void
+    onClose: () => void
+}
