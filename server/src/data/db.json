@@ -5,7 +5,7 @@
       "name": "James Bond",
       "login": "JamesBond",
       "email": "bond@mi6.uk",
-      "group": "management",
+      "group": "Руководство",
       "phone": "+7-999-999-99-99"
     },
     {
@@ -13,7 +13,7 @@
       "name": "John Wick",
       "login": "JohnWick",
       "email": "wick@continental.com",
-      "group": "security",
+      "group": "Безопасность",
       "phone": "+7-888-888-88-88"
     },
     {
@@ -21,23 +21,15 @@
       "name": "Ethan Hunt",
       "login": "EthanHunt",
       "email": "hunt@imf.gov",
-      "group": "field_agents",
+      "group": "Полевые агенты",
       "phone": "+7-777-777-77-77"
-    },
-    {
-      "id": "5c67d890-e345-4f6a-ab12-345678901cde",
-      "name": "Jason Bourne",
-      "login": "JasonBourne",
-      "email": "bourne@cia.gov",
-      "group": "black_ops",
-      "phone": "+7-666-666-66-66"
     },
     {
       "id": "6d78e901-f456-4a7b-bc23-456789012def",
       "name": "Sarah Connor",
       "login": "SarahConnor",
       "email": "connor@resistance.net",
-      "group": "leadership",
+      "group": "Руководство",
       "phone": "+7-555-555-55-55"
     },
     {
@@ -45,7 +37,7 @@
       "name": "Ellen Ripley",
       "login": "EllenRipley",
       "email": "ripley@weyland.com",
-      "group": "space_operations",
+      "group": "Полевые агенты",
       "phone": "+7-444-444-44-44"
     },
     {
@@ -53,7 +45,7 @@
       "name": "Tony Stark",
       "login": "TonyStark",
       "email": "tony@starkindustries.com",
-      "group": "rnd",
+      "group": "IT-разработка",
       "phone": "+7-333-333-33-33"
     },
     {
@@ -61,7 +53,7 @@
       "name": "Natasha Romanoff",
       "login": "NatashaRomanoff",
       "email": "romanoff@avengers.org",
-      "group": "intelligence",
+      "group": "Отдел кадров",
       "phone": "+7-222-222-22-22"
     },
     {
@@ -69,16 +61,8 @@
       "name": "Bruce Wayne",
       "login": "BruceWayne",
       "email": "bruce@wayneenterprises.com",
-      "group": "executive",
+      "group": "Исполнительный комитет",
       "phone": "+7-111-111-11-11"
-    },
-    {
-      "id": "1c23d456-e901-4f2a-gh78-901234567ikl",
-      "name": "Diana Prince",
-      "login": "DianaPrince",
-      "email": "diana@themyscira.gov",
-      "group": "diplomatic",
-      "phone": "+7-000-000-00-00"
     }
   ]
 }

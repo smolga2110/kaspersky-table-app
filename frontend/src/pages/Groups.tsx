@@ -1,6 +1,10 @@
+import GroupsTable from "../components/groups/GroupsTable"
+
 function Groups(){
     return(
-        <></>
+        <>
+            <GroupsTable/>
+        </>
     )
 }
 

@@ -1,3 +1,4 @@
+// AddUserForm.tsx
 import React, { useState } from "react"
 import axios from "axios"
 import { ApiResponse, AddUserFormProps } from "../../types"
@@ -53,57 +54,65 @@ function AddUserForm({ onUserAdded, onClose }: AddUserFormProps) {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Добавить пользователя</h2>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg w-full max-w-md">
+                <h2 className="text-xl font-bold mb-4">Добавить пользователя</h2>
                 
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Имя *</label>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1">Имя *</label>
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded"
                         />
                     </div>
 
-                    <div>
-                        <label>Email *</label>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1">Email *</label>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded"
                         />
                     </div>
 
-                    <div>
-                        <label>Телефон *</label>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1">Телефон *</label>
                         <input
                             type="tel"
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded"
                         />
                     </div>
 
-                    <div>
-                        <label>Группа</label>
+                    <div className="mb-6">
+                        <label className="block text-sm font-medium mb-1">Группа</label>
                         <input
                             type="text"
                             name="group"
                             value={formData.group}
                             onChange={handleChange}
                             placeholder="Unmanaged"
+                            className="w-full px-3 py-2 border rounded"
                         />
                     </div>
 
-                    <div className="buttons">
-                        <button type="submit">
+                    <div className="flex gap-2 justify-end">
+                        <button 
+                            type="submit" 
+                            className="px-4 py-2 text-white rounded hover:bg-opacity-90"
+                            style={{ backgroundColor: '#009982' }}
+                        >
                             Добавить
                         </button>
-                        <button type="button" onClick={onClose}>
+                        <button type="button" onClick={onClose} className="px-4 py-2 border rounded hover:bg-gray-50">
                             Отмена
                         </button>
                     </div>
